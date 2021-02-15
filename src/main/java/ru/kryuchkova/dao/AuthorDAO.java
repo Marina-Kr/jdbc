@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import ru.kryuchkova.model.Author;
-
 import java.util.List;
 import java.util.Optional;
 
