@@ -1,0 +1,29 @@
+DROP TABLE IF EXISTS TBL_BOOKS;
+DROP TABLE IF EXISTS TBL_AUTHORS;
+DROP TABLE IF EXISTS TBL_GENRES;
+
+CREATE TABLE TBL_AUTHORS
+(
+    author_id  INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(250) NOT NULL,
+    last_name  VARCHAR(250) NOT NULL,
+    country    VARCHAR(250)
+);
+
+CREATE TABLE TBL_GENRES
+(
+    genre_id INT AUTO_INCREMENT PRIMARY KEY,
+    name     VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE TBL_BOOKS
+(
+    book_id   INT AUTO_INCREMENT PRIMARY KEY,
+    name      VARCHAR(250) NOT NULL,
+    author_id int          NOT NULL,
+    genre_id  int          NOT NULL,
+    CONSTRAINT FK_Authors FOREIGN KEY (author_id)
+        REFERENCES TBL_AUTHORS (author_id),
+    CONSTRAINT FK_Genres FOREIGN KEY (genre_id)
+        REFERENCES TBL_GENRES (genre_id)
+);
